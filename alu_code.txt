@@ -1,0 +1,22 @@
+module ALU_4BIT(
+    input[3:0]A,
+    input [3:0]B,
+    input [2:0] OP_CODE,
+    output reg Y
+    );
+    always@ (*)
+    begin
+    case(OP_CODE)
+    
+    000 : Y<=(A+B);
+    001 : Y<=(A-B);
+    010 : Y<=(A*B);
+    011 : Y<=(A/B);
+    100 : Y<=(A&B);
+    101 : Y<=(A|B);
+    110 : Y<=~(A&B);
+    111 : Y<=~(A|B);
+     default : Y<=1'b0;
+    endcase
+    end
+endmodule
